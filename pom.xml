@@ -150,12 +150,7 @@
 			        <enhancerName>ASM</enhancerName>
 			    </configuration>
 			    <executions>
-			        <execution>
-			            <phase>process-classes</phase>
-			            <goals>
-			                <goal>enhance</goal>
-			            </goals>
-			        </execution>
+			        
 			    </executions>
 			    <dependencies>
 			        <dependency>

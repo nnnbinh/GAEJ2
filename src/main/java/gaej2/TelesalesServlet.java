@@ -15,12 +15,7 @@ import gaej2.PMF;
 
 import com.google.appengine.api.datastore.Key; 
 import com.google.appengine.api.datastore.KeyFactory;
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.datastore.PreparedQuery;
-import com.google.appengine.api.datastore.FetchOptions;
+
 
 @SuppressWarnings("serial")
 public class TelesalesServlet extends HttpServlet{
@@ -29,7 +24,6 @@ public class TelesalesServlet extends HttpServlet{
 		// create the persistence manager instance
 //		PersistenceManager pm = PMF.get().getPersistenceManager();
 		System.out.println("in");
-		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		// display the lookup form 
 		if(request.getParameter("action").equals("accountLookup")) {

@@ -33,3 +33,8 @@
 11:50:01,366 (main) INFO  [DataNucleus.Enhancer] - Class "gaej2.Entity.Account" is already enhanced.
 11:50:01,380 (main) INFO  [DataNucleus.Enhancer] - Class "gaej2.Entity.Opportunity" is already enhanced.
 11:50:01,385 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=1326 ms, enhance=178 ms, total=1504 ms. Consult the log for full details
+14:08:04,198 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+14:08:04,441 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+14:08:04,954 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Code\Java\GAEJ2\target\gaej2-0.1.0-SNAPSHOT\WEB-INF\classes\gaej2\Entity\Account.class" with enhanced definition
+14:08:04,962 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Code\Java\GAEJ2\target\gaej2-0.1.0-SNAPSHOT\WEB-INF\classes\gaej2\Entity\Opportunity.class" with enhanced definition
+14:08:04,964 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=416 ms, enhance=104 ms, total=520 ms. Consult the log for full details
