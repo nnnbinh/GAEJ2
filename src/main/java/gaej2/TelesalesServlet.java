@@ -1,12 +1,15 @@
 package gaej2;
 
 import java.io.IOException; 
+
 import javax.servlet.http.*;
 
 import java.util.ArrayList;
 import java.util.Date; 
 import java.util.List; 
-import java.text.DateFormat; 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import javax.servlet.*; 
 import javax.jdo.PersistenceManager;
 
@@ -19,21 +22,20 @@ import com.google.appengine.api.datastore.KeyFactory;
 
 @SuppressWarnings("serial")
 public class TelesalesServlet extends HttpServlet{
+			static int total = 0;
 	@SuppressWarnings("deprecation")
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		// create the persistence manager instance
 //		PersistenceManager pm = PMF.get().getPersistenceManager();
-		System.out.println("in");
+		
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		// display the lookup form 
 		if(request.getParameter("action").equals("accountLookup")) {
 			 // query for the entities by name 
-			System.out.println("in lookup");
 			String query = "select from " + Account.class.getName()
 					+ " where name == '"+request.getParameter("accountName")+"'";
 			List<Account> accounts = (List<Account>)
 			pm.newQuery(query).execute();	
-
 			// pass the list to the jsp 
 			request.setAttribute("accounts", accounts);
 			// forward the request to the jsp 
@@ -92,8 +94,8 @@ public class TelesalesServlet extends HttpServlet{
 			try { 
 				DateFormat df = DateFormat.getDateInstance(3);
 				closeDate = df.parse(request.getParameter("closeDate")); 
-			} catch(java.text.ParseException pe) { 
-				System.out.println("Exception " + pe); 
+			} catch(java.text.ParseException pe) {
+				System.out.println("ParseExceptions: "+pe);
 			} 
 			
 			Opportunity opp = new Opportunity(request.getParameter("name"),
@@ -110,7 +112,16 @@ public class TelesalesServlet extends HttpServlet{
 			}
 			response.sendRedirect("telesales?action=accountDisplay&accountId="+request.getParameter("accountId")); 
 
-		} 
+		}else if(request.getParameter("action").equals("Count")) {
+			request.setAttribute("count",total);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/DateNow.jsp");
+			dispatcher.forward(request, response);
+		}else if(request.getParameter("action").equals("addCount")) {
+			total+= 1;
+			request.setAttribute("count", total);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/DateNow.jsp");
+			dispatcher.forward(request, response);
+		}
   } 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		doGet(request, response); 

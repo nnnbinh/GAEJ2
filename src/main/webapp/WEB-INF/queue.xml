@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queue-entries>
+	<total-storage-limit>200M</total-storage-limit>
+	<queue>
+		<name>default</name>
+		<rate>10/s</rate>
+	</queue>
+	<queue>
+		<name>attack-effects</name>
+		<rate>100/s</rate>
+		<bucket-size>20</bucket-size>
+	</queue>
+</queue-entries>
