@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Count</title>
 </head>
 <body>
 	<h1 style="color:red">
